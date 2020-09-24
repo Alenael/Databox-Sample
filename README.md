@@ -179,6 +179,22 @@ namespace Data.Setting
 }
 ```
 
+There is a small class attached that just holds some data for us that allows easy access. You do not need it unless you need to maybe store something in order to access it when calling OnValueChanged or GetData from the individual classes. Depending on the scope and needs of your game you can expand the BaseSettingsObj to include whatever you really need.
+
+```csharp
+using Databox;
+
+namespace Data.Setting
+{
+    public class UserSettingsItemInfo
+    {
+        public DataboxObject DataboxObject { get; set; }
+        public string TableName { get; set; }
+        public DataboxType DataType { get; set; }
+    }
+}
+```
+
 Finally the last bit is actually setting up the Databox object which is done using the script below. All you need to do is attach this to a GameObject and it will ensure the User Settings file gets created and it automatically generates with all User Settings inside it. If the file already exists it is loaded up before hand into the DataboxObject and only items which are missing from it are inserted. 
 
 ```csharp
