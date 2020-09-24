@@ -1,5 +1,5 @@
 # Databox Sample
- Small sample project with which shows how to expand Databox(http://databox.doorfortyfour.com/) to better support Saves, Settings Files, Profile Data, etc. which may change as development continues. 
+ Small sample project with which shows how to expand [Databox](http://databox.doorfortyfour.com/) to better support Saves, Settings Files, Profile Data, etc. which may change as development continues. 
  
 # Why was this made?
 One of my largest issues I found in DataBox was that there was no easy ways to migrate from one version of a config, save file, or whatever you need on the Clients machine to the next version of the file. Typically in development (or even in testing) you add new flags or data to a config file and updating one that already exists or using an outdated one can be challenging at times. This system helps to ease that process a bit but doesn't eliminate all issues around the topic so please do not consider it a complete system or the best system you could come up with. 
