@@ -8,9 +8,9 @@ One of my largest issues I found in DataBox was that there were no easy ways to 
 Provides ability to create profile, save, and user setting files based off actual code. This system allows you to code each feature individually from one another and get them importing in automatically. It can really help distinguish code from one another and not feel like you'r running in circles as your game grows by keeping code separated for each thing you need in your database. It also allows all functionality Databox has to offer even the ability to update all these values (and see them as they change!) during run time via the Databox Editor.
 
 # How does it work?
-Using System.Reflection and some basic classes you can create each feature which is needed for your database in code using simple code. This is the primary way we create features which get stored into the DataboxObject. In order to create this class it needs an EntityName, DataName, and you must define a GetData() return of the type you are wanting to save to the DataboxObject. This type can be anything as well as DataboxObject is accepting of custom built-classes (even if it doesn't render properly in the UI).
+Using System.Reflection and some basic classes you can create each feature which is needed for your database in code using simple code. This is the primary way we create features which get stored into the DataboxObject. In order to create this class it needs an EntityName, DataName, and you must define a GetData() return of the type you are wanting to save to the DataboxObject. This type can be anything as well as DataboxObject is accepting of custom built-classes (even if it doesn't render properly in the UI). These classes always inherit from a Base class that needs types specified BaseSettingObj<T, T2> which can be specified as BaseSettingObj<FloatType, VersionObj> when inheriting allowing you to setup that this DataboxObject will contain a FloatType and when I create an instance of the object it will be of type VersionObj.
 
-This example stores a Version Number in the DataboxObject which in turn is saved into the file. 
+This example stores a Version Number in the DataboxObject. You can set the Initial Value in GetData() via the InitValue in your DataboxType. While the constructor doesn't do anything it is required at this time.
 ```csharp
 using Databox;
 using Core;
@@ -34,7 +34,7 @@ namespace Data.Setting
 }
 ```
 
-Here is an example of a setting which can control the Master Volume. This one is a bit more complicated than the prior one as it also overrides OnValueChanged which is from the base class BaseSettingsObj and allows you to perform an action when the value changes. Here I am adjusting the AudioManager system which controls the Mixer for my game.
+Here is an example of a setting which can control the Master Volume. This one is a bit more complicated than the prior one as it also overrides OnValueChanged which is from the base class BaseSettingsObj<T, T2> and allows you to perform an action when the value changes. Here I am adjusting the AudioManager system which controls the Mixer for my game.
 ```csharp
 using Core;
 using Databox;
