@@ -228,8 +228,5 @@ namespace Data.Setting
 }
 ```
 
-# What Else is Contained in the Porject?
-A profile system built using the same setup as the above user settings system.
-
-# Things I could Improve Upon?
+# Questions or Things I could Improve Upon?
 I bet there is plenty here I could improve upon and am happy to hear back about anything you find here or questions you have. Feel free to reach out to me on GitHub or on Discord at Alenael#1801.
